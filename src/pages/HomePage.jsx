@@ -47,6 +47,7 @@ const produtosFallback = [
 const HomePage = () => {
   const [produtosEmAlta, setProdutosEmAlta] = useState(produtosFallback);
 
+  // Busca produtos da API na porta 3000
   useEffect(() => {
     fetch('http://localhost:3000/api/products')
       .then((response) => {
@@ -64,7 +65,7 @@ const HomePage = () => {
         }
       })
       .catch((error) => {
-        console.warn('API offline, usando produtos locais:', error);
+        console.warn('Erro ao buscar API:', error);
       });
   }, []);
 
